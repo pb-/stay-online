@@ -1,0 +1,13 @@
+[Unit]
+Description=Stay online!
+After=network.target
+
+[Service]
+WorkingDirectory=/
+ExecStart=/usr/bin/python3 /home/pi/stay-online.py
+
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+
+[Install]
+WantedBy=multi-user.target
