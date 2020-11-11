@@ -25,11 +25,11 @@ sleep(300)  # give things time to settle in and avoid a tight reboot loop
 
 while True:
     if not online():
-        for i in range(3):
+        for _ in range(3):
             sleep(10)
             if online():
                 break
-            if i == 2:
-                reboot()
+        else:
+            reboot()
 
     sleep(60)
